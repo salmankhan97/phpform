@@ -11,9 +11,12 @@
 
     try{
         $pdo = new PDO($dsn, $user, $pass);
-        echo "lol";
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch(PDOException $error){
         throw new PDOException($error->getMessage());
         //echo "<h1 class='text-danger text-center'>Database error</h1>";
     }
+
+    require_once 'crud.php';
+    $crud = new crud($pdo);
 ?>

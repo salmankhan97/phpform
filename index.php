@@ -7,8 +7,9 @@ $page_title = 'Welcome';
 require_once 'snippets/header.php';
 //importing database connection
 require_once 'db/conn.php';
-?>
 
+$subjects = $crud->getSubject();
+?>
 <!-- Body starts here -->
 
 <div class="container">
@@ -36,7 +37,7 @@ require_once 'db/conn.php';
     </div>
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-            <form action="submitted.php" method="POST" class="text-dark">
+            <form action="success.php" method="POST" class="text-dark">
                 <div class="form-floating">
                   <input type="text" class="form-control mb-3" id="floatingfirstname" name="firstname" placeholder="First Name">
                   <label for="floatingfirstname">First Name</label>
@@ -59,18 +60,18 @@ require_once 'db/conn.php';
                   
                 </div>
                 <div class="form-floating my-3">
-                    <input type="text"  class="form-control mb-3" id="floatingNumber" name="cellphone" placeholder="Phone Number">
+                    <input type="text"  class="form-control mb-3" id="floatingNumber" name="phone_number" placeholder="Phone Number">
                     <label for="floatingNumber">Phone Number</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text"  class="form-control mb-3" id="floatingDob" name="dateofbirth" placeholder="Date of Birth">
+                    <input type="text"  class="form-control mb-3" id="floatingDob" name="dob" placeholder="Date of Birth">
                     <label for="floatingDob">Date of Birth</label>
                 </div>
-                <select class="form-select form-select-md py-3 mb-3" aria-label=".form-select-lg example" name="subject">
+                <select class="form-select form-select-md py-3 mb-3" aria-label=".form-select-lg example" name="subject_id">
                   <option selected>Select Subject</option>
-                  <option value="1">Web Development</option>
-                  <option value="2">UI/UX Design</option>
-                  <option value="3">Graphics Design</option>
+                <?php while($x = $subjects->fetch(PDO::FETCH_ASSOC)){ ?>
+                  <option value="<?php echo $x['subjects_id']?>"><?php echo $x['subject_name'] ?></option>  
+                <?php } //while ends?>  
                 </select>
                 <div class="text-center">
                     <input type="submit" name="submit" value="Submit" class="text-white btn-grad mb-3">
