@@ -1,0 +1,67 @@
+
+
+/*# sourceMappingURL=custom.scss.map */
+
+body{
+    background-image: url("../images/bgnet.png");
+    background-repeat: repeat;
+}
+.btn-grad {background-image: linear-gradient(to right, #FF8008 0%, #FFC837  51%, #FF8008  100%)}
+.btn-grad {
+   padding: 10px 30px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #292e33;
+   border-radius: 6px;
+   display: inline-block;
+   border: 0px;
+   font-weight: 600;
+ }
+
+ .btn-grad:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
+
+ .form-control, .form-select{
+    background-color: #212529 !important;
+    color: #fff !important;
+
+ }
+ .form-control:focus, .form-select:focus{
+    border-color: #FF8008 !important;
+    box-shadow: 0 0 0 0.10rem #FFC837 !important;
+ }
+ .form-control::placeholder{
+    //  color: white !important;
+ }
+ .form-floating label{
+     color: #FFF !important;
+ }
+ .form-select{
+    color: #ffffff !important;
+ }
+#emailHelp, #emailHelp:hover, #emailHelp:focus{
+    padding: 0px;
+    background: none;
+    font-size: 12px;
+    color: #eeeeee;
+    padding-left: 10px;
+    box-shadow: none;
+    outline: none;
+    cursor: help;
+}
+.text-grad{
+    background: -webkit-linear-gradient(#FFC837 , #FF8008);
+    -webkit-text-fill-color: #4a141400;
+    -webkit-background-clip: text;
+}
+.clock{
+    position: absolute;
+    top: 50px;
+    right: 50px;
+}
