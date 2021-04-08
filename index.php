@@ -5,6 +5,8 @@ $page_title = 'Welcome';
 
 //importing header
 require_once 'snippets/header.php';
+//importing database connection
+require_once 'db/conn.php';
 ?>
 
 <!-- Body starts here -->
