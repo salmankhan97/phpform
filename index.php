@@ -46,7 +46,7 @@ $subjects = $crud->getSubject();
                   <input type="text" class="form-control mb-3" id="floatinglastname" name="lastname" placeholder="Last Name">
                   <label for="floatinglastname">Last Name</label>
                 </div>
-                <div class="form-floating" mb-3">
+                <div class="form-floating mb-3">
                   <input type="email" class="form-control" id="floatingEmail" name="email" placeholder="name@example.com">
                   <label for="floatingEmail" aria-describedby="emailHelp">Email address</label>
                   <button type="button" class="btn btn-sm btn-dark" id="emailHelp" class="d-inline form-text ml-3" data-bs-toggle="tooltip" data-bs-placement="right" title="For your own security you shouldn't type in your Email Address in random sites">
@@ -63,10 +63,11 @@ $subjects = $crud->getSubject();
                     <input type="text"  class="form-control mb-3" id="floatingNumber" name="phone_number" placeholder="Phone Number">
                     <label for="floatingNumber">Phone Number</label>
                 </div>
-                <div class="form-floating mb-3">
-                    <input type="text"  class="form-control mb-3" id="floatingDob" name="dob" placeholder="Date of Birth">
+                <div class="form-floating">
+                    <input type="date"  class="form-control mb-3" name="dob" id="floatingDob">
                     <label for="floatingDob">Date of Birth</label>
                 </div>
+                
                 <select class="form-select form-select-md py-3 mb-3" aria-label=".form-select-lg example" name="subject_id">
                   <option selected>Select Subject</option>
                 <?php while($x = $subjects->fetch(PDO::FETCH_ASSOC)){ ?>

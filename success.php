@@ -44,26 +44,21 @@ if(isset($_POST['submit'])){
             <tr class="table-active">
                 <th>Full Name</th>
                 <th>Email</th>
-                <!-- <th>Phone Number</th> -->
-                <!-- <th>Date of Birth</th> -->
+                <th>Phone Number</th>
                 <th>Subject</th>
-                <!-- <th>Joining Date</th> -->
                 <th>Actions</th>
             </tr>
         <?php while($x = $results->fetch(PDO::FETCH_ASSOC)) { ?>
-
             <tr>
                 <td><?php echo $x['first_name']." ".$x['last_name']?></td>
                 <td><?php echo $x['email_address']?></td>
-                <!-- <td><?php //echo $x['phone_number']?></td> -->
-                <!-- <td><?php //echo $x['date_of_birth']?></td> -->
+                <td><?php echo $x['phone_number']?></td>
                 <td><?php echo $x['subject_name']?></td>
-                <!-- <td><?php //echo date('d-m-y', strtotime($x['joining_date'])); ?></td> -->
-                <td><button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#viewid<?php echo $x['student_id'] ?>">View</button>
-                <?php include'viewmodal.php' //INcluding view data modal ?>  
+                <td>
+                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#viewid<?php echo $x['student_id'] ?>">View</button>
+                    <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editid<?php echo $x['student_id'] ?>">Edit</button>
                 </td>
             </tr>
-
         <?php } //while loop ends here?>
         </table>
     </div>
@@ -80,5 +75,5 @@ if(isset($_POST['submit'])){
 <!-- Body ends here -->
 <?php
 //importing footer
-require_once 'snippets/footer.php';
+require 'snippets/footer.php';
 ?>
