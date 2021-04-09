@@ -45,7 +45,7 @@
             $stmt = $this->db->prepare($sql);
             $stmt->bindparam(':id', $id);
             $stmt->execute();
-            $result = $stmt->fetch();  //must for single cplumn data
+            $result = $stmt->fetch();  //must for single column data
             return $result;
         }
         public function getSubject(){

@@ -40,33 +40,40 @@ if(isset($_POST['submit'])){
 
 <div class="container-fluid col-11 py-5 px-3 rounded-3 border border-light mx-auto my-5 bg-dark">
     <div class="table-responsive">
-        <table class="table table-striped table-dark table-hover ">
+        <table class="table table-striped table-dark ">
             <tr class="table-active">
                 <th>Full Name</th>
                 <th>Email</th>
-                <th>Phone Number</th>
-                <th>Date of Birth</th>
+                <!-- <th>Phone Number</th> -->
+                <!-- <th>Date of Birth</th> -->
                 <th>Subject</th>
-                <th>Joining Date</th>
-                <th>Edit/Remove</th>
+                <!-- <th>Joining Date</th> -->
+                <th>Actions</th>
             </tr>
         <?php while($x = $results->fetch(PDO::FETCH_ASSOC)) { ?>
 
             <tr>
                 <td><?php echo $x['first_name']." ".$x['last_name']?></td>
                 <td><?php echo $x['email_address']?></td>
-                <td><?php echo $x['phone_number']?></td>
-                <td><?php echo $x['date_of_birth']?></td>
+                <!-- <td><?php //echo $x['phone_number']?></td> -->
+                <!-- <td><?php //echo $x['date_of_birth']?></td> -->
                 <td><?php echo $x['subject_name']?></td>
-                <td><?php echo date('d-m-y', strtotime($x['joining_date'])); ?></td>
-                <td></td>
+                <!-- <td><?php //echo date('d-m-y', strtotime($x['joining_date'])); ?></td> -->
+                <td><button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#viewid<?php echo $x['student_id'] ?>">View</button>
+                <?php include'viewmodal.php' //INcluding view data modal ?>  
+                </td>
             </tr>
 
         <?php } //while loop ends here?>
         </table>
     </div>
-        
 </div>
+        
+    
+
+
+
+
 
 
 
