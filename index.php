@@ -37,7 +37,7 @@ $subjects = $crud->getSubject();
     </div>
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-            <form action="success.php" method="POST" class="text-dark">
+            <form action="datalist.php" method="POST" class="text-dark">
                 <div class="form-floating">
                   <input type="text" class="form-control mb-3" id="floatingfirstname" name="firstname" placeholder="First Name">
                   <label for="floatingfirstname">First Name</label>
@@ -74,6 +74,11 @@ $subjects = $crud->getSubject();
                   <option value="<?php echo $x['subjects_id']?>"><?php echo $x['subject_name'] ?></option>  
                 <?php } //while ends?>  
                 </select>
+
+                <div class="form-floating my-3">
+                    <textarea class="form-control mb-3" id="floatingNumber" name="feedback" style="height: 100px" placeholder=" Feedback"></textarea>
+                    <label for="floatingNumber">Feedback</label>
+                </div>
                 <div class="text-center">
                     <input type="submit" name="submit" value="Submit" class="text-white btn-grad mb-3">
                 </div>

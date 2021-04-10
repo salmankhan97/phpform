@@ -5,7 +5,7 @@
 
 
 <div class="modal fade" id="viewid<?php echo $x['student_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content bg-dark text-light">
       <div class="modal-header">
         <h5 class="modal-title">View information</h5>
@@ -29,13 +29,18 @@
                   <div class="col"><?php echo $info['subject_name'] ?></div>
                   <div class="col user-select-none fw-bold">Joining Date:</div>
                   <div class="col"><?php echo date('jS F Y', strtotime($info['joining_date'])) ?></div>
+                  <div class="col user-select-none fw-bold mb-3">Feedback:</div>
+                </div>
+                <div class="col-12">
+                  <p class="text-wrap"><?php echo $info['feedback'] ?></p>
                 </div>
           </div>
 
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-bs-target="#editid<?php echo $x['student_id'] ?>" data-bs-toggle="modal" data-bs-dismiss="modal">Edit</button>
+        <button type="button" class="btn btn-danger" data-bs-target="#deleteid<?php echo $x['student_id'] ?>" data-bs-toggle="modal" data-bs-dismiss="modal">Delete</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
       </div>
     </div>
   </div>

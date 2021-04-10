@@ -6,7 +6,7 @@
 
 
 <div class="modal fade" id="editid<?php echo $x['student_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content bg-dark text-light">
       <div class="modal-header">
         <h5 class="modal-title">Edit information</h5>
@@ -14,7 +14,8 @@
       </div>
       <div class="modal-body">
           
-      <form action="" method="POST" class="text-dark">
+      <form action="update.php" method="POST" class="text-dark">
+            <input type="hidden" name="id" value="<?php echo $x['student_id'] ?>">
             <div class="form-floating">
               <input type="text" class="form-control mb-3" value="<?php echo $info['first_name'] ?>" id="floatingfirstname" name="firstname" placeholder="First Name">
               <label for="floatingfirstname">First Name</label>
@@ -35,26 +36,25 @@
                 <input type="date"  class="form-control mb-3" id="floatingDob" value="<?php echo $info['date_of_birth'] ?>" name="dob">
                 <label for="floatingDob">Date of Birth</label>
             </div>
-            <select class="form-select form-select-md py-3 mb-3"  value="<?php echo $info['subject_id'] ?>" aria-label=".form-select-lg example" name="subject_id">
+            <select class="form-select form-select-md py-3"  value="<?php echo $info['subject_id'] ?>" aria-label=".form-select-lg example" name="subject_id">
             <?php while($x = $subjects->fetch(PDO::FETCH_ASSOC)){ ?>
                 <option value="<?php echo $x['subjects_id']?>" <?php if($x['subjects_id'] == $info['subject_id'])echo "selected" ?> >
                     <?php echo $x['subject_name'] ?>
                 </option>  
             <?php } //while ends?>  
             </select>
-            <!-- <div class="text-center">
-                <input type="submit" name="submit" value="Submit" class="text-white btn-grad mb-3">
-            </div> -->
 
-
-        </form>
-
-
+            <div class="form-floating my-3">
+                <textarea class="form-control mb-3" id="floatingNumber" name="feedback" style="height: 100px" placeholder=" Feedback"><?php echo $info['feedback'] ?></textarea>
+                <label for="floatingNumber">Feedback</label>
+            </div>
       </div>
       <div class="modal-footer">
+        <input type="submit" name="submit" value="Update" class="btn btn-warning">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        </div>
       </div>
+      </form>
     </div>
   </div>
 </div>
