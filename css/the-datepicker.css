@@ -60,6 +60,7 @@
 .the-datepicker__main .the-datepicker__title-content {
   display: inline-block;
   padding: 0.5em;
+  color: #FFF;
 }
 .the-datepicker__main .the-datepicker__control {
   display: inline-block;
