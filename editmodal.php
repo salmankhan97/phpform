@@ -6,7 +6,7 @@
 
 
 <div class="modal fade" id="editid<?php echo $x['student_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content bg-dark text-light">
       <div class="modal-header">
         <h5 class="modal-title">Edit information</h5>
