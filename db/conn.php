@@ -1,10 +1,10 @@
 <?php
     //Connection to the database
 
-    $host = 'sql111.epizy.com';
-    $db = 'epiz_28357306_phpform';
-    $user = 'epiz_28357306';
-    $pass = 'bDT6rk2AlkA';
+    $host = 'remotemysql.com';
+    $db = '1Vlo3X8QkC';
+    $user = '1Vlo3X8QkC';
+    $pass = 'HiUkQaHIZd';
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
