@@ -1,10 +1,10 @@
 <?php
     //Connection to the database
 
-    $host = 'localhost';
-    $db = 'ssb_db';
-    $user = 'root';
-    $pass = '';
+    $host = 'sql111.epizy.com';
+    $db = 'epiz_28357306_phpform';
+    $user = 'epiz_28357306';
+    $pass = 'bDT6rk2AlkA';
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
