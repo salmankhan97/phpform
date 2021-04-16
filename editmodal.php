@@ -33,8 +33,8 @@
                 <label for="floatingNumber">Phone Number</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text"  class="form-control mb-3" id="floatingDob" value="<?php echo $info['date_of_birth'] ?>" name="dob">
-                <label for="floatingDob">Date of Birth</label>
+                <input type="date"  class="form-control mb-3" id="floatingDobdate" value="<?php echo date('Y-m-j', strtotime($info['date_of_birth'])) //this way html form gets date value ?>" name="dob">
+                <label for="floatingDobdate">Date of Birth</label>
             </div>
             <select class="form-select form-select-md py-3"  value="<?php echo $info['subject_id'] ?>" aria-label=".form-select-lg example" name="subject_id">
             <?php while($x = $subjects->fetch(PDO::FETCH_ASSOC)){ ?>

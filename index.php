@@ -39,7 +39,7 @@ $subjects = $crud->getSubject();
         <div class="col-12 col-md-8 col-lg-6">
             <form action="datalist.php" method="POST" class="text-dark">
                 <div class="form-floating">
-                  <input type="text" class="form-control mb-3" id="floatingfirstname" name="firstname" placeholder="First Name">
+                  <input type="text" class="form-control mb-3" required id="floatingfirstname" name="firstname" placeholder="First Name">
                   <label for="floatingfirstname">First Name</label>
                 </div>
                 <div class="form-floating">
@@ -47,7 +47,7 @@ $subjects = $crud->getSubject();
                   <label for="floatinglastname">Last Name</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingEmail" name="email" placeholder="name@example.com">
+                  <input type="email" class="form-control" required id="floatingEmail" name="email" placeholder="name@example.com">
                   <label for="floatingEmail" aria-describedby="emailHelp">Email address</label>
                   <button type="button" class="btn btn-sm btn-dark" id="emailHelp" class="d-inline form-text ml-3" data-bs-toggle="tooltip" data-bs-placement="right" title="For your own security you shouldn't type in your Email Address in random sites">
                       Please enter any dummy email
@@ -60,7 +60,7 @@ $subjects = $crud->getSubject();
                   
                 </div>
                 <div class="form-floating my-3">
-                    <input type="text"  class="form-control mb-3" id="floatingNumber" name="phone_number" placeholder="Phone Number">
+                    <input type="text"  class="form-control mb-3" required id="floatingNumber" name="phone_number" placeholder="Phone Number">
                     <label for="floatingNumber">Phone Number</label>
                 </div>
                 <div class="form-floating">
@@ -68,8 +68,8 @@ $subjects = $crud->getSubject();
                     <label for="floatingDob">Date of Birth</label>
                 </div>
                 
-                <select class="form-select form-select-md py-3 mb-3" aria-label=".form-select-lg example" name="subject_id">
-                  <option selected>Select Subject</option>
+                <select class="form-select form-select-md py-3 mb-3" required aria-label=".form-select-lg example" name="subject_id">
+                  <option disabled selected>Select Subject</option>
                 <?php while($x = $subjects->fetch(PDO::FETCH_ASSOC)){ ?>
                   <option value="<?php echo $x['subjects_id']?>"><?php echo $x['subject_name'] ?></option>  
                 <?php } //while ends?>  

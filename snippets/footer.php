@@ -4,9 +4,10 @@
 <script src="js/clock.js"></script>
 <script>
     const input = document.getElementById('floatingDob');
+    
     const datepicker = new TheDatepicker.Datepicker(input);
     datepicker.render();
-    datepicker.options.setInputFormat('j-F-Y');
+    datepicker.options.setInputFormat('d/m/Y');
     datepicker.options.setDropdownItemsLimit(1950, 2025);
     datepicker.options.setShowDeselectButton();
     datepicker.options.setShowCloseButton();
@@ -14,6 +15,7 @@
     datepicker.options.setTitle("Date of Birth");
 
 </script>
+
 
 
 </body>

@@ -24,7 +24,7 @@
                   <div class="col user-select-none fw-bold">Phone Number:</div>
                   <div class="col"><?php echo $info['phone_number'] ?></div>
                   <div class="col user-select-none fw-bold">Date of Birth:</div>
-                  <div class="col"><?php echo date('jS F Y', strtotime($info['date_of_birth'])) ?></div>
+                  <div class="col"><?php echo date('j/m/Y', strtotime($info['date_of_birth'])) ?></div>
                   <div class="col user-select-none fw-bold">Subject:</div>
                   <div class="col"><?php echo $info['subject_name'] ?></div>
                   <div class="col user-select-none fw-bold">Joining Date:</div>

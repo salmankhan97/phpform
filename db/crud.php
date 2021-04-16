@@ -32,7 +32,7 @@
             } catch (PDOException $th) {
                 echo $th->getMessage();
                 return false;            }
-        }
+            }
         public function update($id, $fname, $lname, $email, $phone_number, $dob, $feedback, $subject_id){
             try{
                 $sql = "UPDATE students_info SET first_name = :fname, last_name = :lname, email_address = :email, phone_number = :phone_number, date_of_birth = :dob, feedback = :feedback, subject_id = :subject_id WHERE student_id = :id";
