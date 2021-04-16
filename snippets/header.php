@@ -1,3 +1,4 @@
+<?php include_once 'snippets/session.php' ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -29,6 +30,19 @@
             <li class="nav-item">
               <a class="nav-link" href="datalist.php">Submitted Data</a>
             </li>
+
+            <?php
+              //checking if logged in
+              if(!isset($_SESSION['id'])){ ?>
+              <li class="nav-item">
+                <a class="nav-link" href="login.php">Login</a>
+              </li>
+            <?php }else { ?>
+              <li class="nav-item">
+                <a class="nav-link" href="logout.php">Log Out</a>
+              </li>
+            <?php } ?>
+            
           </ul>
         </div>
       </div>

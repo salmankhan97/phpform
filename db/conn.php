@@ -6,6 +6,11 @@
     $user = '1Vlo3X8QkC';
     $pass = 'HiUkQaHIZd';
     $charset = 'utf8mb4';
+    // $host = 'localhost';
+    // $db = 'ssb_db';
+    // $user = 'root';
+    // $pass = '';
+    // $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
@@ -20,5 +25,6 @@
     require_once 'crud.php';
     require_once 'user.php';
     $crud = new crud($pdo);
-    $crud = new user($pdo);
-?>
+    $user = new user($pdo);
+
+    $user->insertUser("admin","password");
