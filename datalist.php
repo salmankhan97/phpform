@@ -4,6 +4,8 @@ $page_title = 'Submitted Data';
 
 //importing header
 require_once 'snippets/header.php';
+//Checking if logged in
+require_once 'snippets/auth_check.php';
 //importing database connection
 require_once 'db/conn.php';
 
