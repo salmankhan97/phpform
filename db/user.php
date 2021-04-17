@@ -8,7 +8,7 @@
         }
 
 
-        public function insertUser($username,$password){
+        public function insertUser($username,$password,$avatar){
             try{
                 $result = $this->getUsersByUserName($username);
                 if($result['num'] > 0){
@@ -16,11 +16,12 @@
 
                 } else{
                     $new_password = md5($password.$username);
-                    $sql = 'INSERT INTO userinfo (username, password) VALUES (:username, :password)';
+                    $sql = 'INSERT INTO userinfo (username, password, avatar) VALUES (:username, :password, :avatar)';
                     $stmt = $this->db->prepare($sql);
 
                     $stmt->bindparam(':username',$username);
                     $stmt->bindparam(':password',$new_password);
+                    $stmt->bindparam(':avatar',$avatar);
                     $stmt->execute();
                     return true;
                 }

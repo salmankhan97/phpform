@@ -37,6 +37,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="login.php">Login</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="signup.php">Sign Up</a>
+              </li>
             <?php }else { ?>
               <li class="nav-item">
                 <a class="nav-link" href="logout.php">Log Out</a>

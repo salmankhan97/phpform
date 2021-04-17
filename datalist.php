@@ -5,7 +5,7 @@ $page_title = 'Submitted Data';
 //importing header
 require_once 'snippets/header.php';
 //Checking if logged in
-require_once 'snippets/auth_check.php';
+// require_once 'snippets/auth_check.php';
 //importing database connection
 require_once 'db/conn.php';
 
@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
 
     //call function to insert and check if success or not
     $isSuccess = $crud->insert($fname, $lname, $email, $phone_number, $dob, $feedback, $subject_id);
-    if(isset($_POST)){ ?>
+    if($isSuccess){ ?>
         <div class="msgboard col-11 py-5 rounded-3 border border-light mx-auto mt-5 text-center bg-dark">
             <h1 class='text-grad'>Submitted Successfully</h1>
         </div>
