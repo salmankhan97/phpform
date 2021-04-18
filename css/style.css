@@ -56,7 +56,16 @@ body {
 
 .clock {
   position: absolute;
-  top: 50px;
-  right: 50px; }
+  top: 100px;
+  right: 100px; }
+
+.avatar{
+  height: 40px;
+  width: 40px;
+  padding: 0px !important;
+}
+.avatar img{
+  object-fit: cover;
+}
 
 /*# sourceMappingURL=style.css.map */

@@ -30,6 +30,9 @@
             <li class="nav-item">
               <a class="nav-link" href="datalist.php">Submitted Data</a>
             </li>
+          </ul>
+
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
             <?php
               //checking if logged in
@@ -41,6 +44,14 @@
                 <a class="nav-link" href="signup.php">Sign Up</a>
               </li>
             <?php }else { ?>
+
+              <li class="nav-item">
+                <button class="btn nav-link avatar border border-2 border-light rounded-3"   data-bs-toggle="modal" data-bs-target="#user"><img class="mw-100 h-100" src="<?php echo empty($_SESSION['avatar']) ?  'images/avatar_placeholder.png' : $_SESSION['avatar'] ?>" alt="avatar"></button>
+              </li>
+              <li class="nav-item">
+                <button class="btn nav-link text-light"  data-bs-toggle="modal" data-bs-target="#user"><?php echo $_SESSION['username']; ?></button>
+              </li>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="logout.php">Log Out</a>
               </li>
@@ -50,3 +61,4 @@
         </div>
       </div>
     </nav>
+    <?php include 'snippets/usermodal.php' ?>

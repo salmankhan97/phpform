@@ -20,13 +20,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $result = $user->getUser($username,$new_password);
 
     if(!$result){
-        echo $username;
-        echo $new_password;
-        echo 'Username or Password is incorrect';
+        echo '<p class="text-danger text-center">Username or Password is incorrect</p>';
     }else{
 
         $_SESSION['username'] = $username;
         $_SESSION['id'] = $result['id'];
+        $_SESSION['avatar'] = $result['avatar'];
+        
         header("Location: datalist.php");
     }
 
@@ -53,8 +53,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                   <label for="floatingpassword">Password</label>
                 </div>
                 <div class="text-center">
-                    <input type="submit" name="submit" value="Submit" class="text-white btn-grad mb-3">
-                    <a href="#" class=" text-light d-block">Forgot password</a>
+                    <input type="submit" name="submit" value="Submit" class="text-white btn-grad mb-2">
+                    <a href="signup.php" class=" text-light d-block">Sign Up</a>
                 </div>
             </form>
         </div>
