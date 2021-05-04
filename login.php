@@ -13,17 +13,18 @@ require_once 'db/conn.php';
 //submit action
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $username = strtolower(trim($_POST['username']));
+    // $username = strtolower(trim($_POST['username']));
+    $email = $_POST['email'];
     $password = $_POST['password'];
-    $new_password = md5($password.$username);
+    $new_password = md5($password.$email);
 
-    $result = $user->getUser($username,$new_password);
+    $result = $user->getUser($email,$new_password);
 
     if(!$result){
         echo '<p class="text-danger text-center">Username or Password is incorrect</p>';
     }else{
 
-        $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
         $_SESSION['id'] = $result['id'];
         $_SESSION['avatar'] = $result['avatar'];
         
@@ -44,9 +45,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
             <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" class="text-dark">
-                <div class="form-floating">
-                  <input type="text" class="form-control mb-3" required id="floatingusername" name="username" placeholder="Username" value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST') echo $_POST['username']; ?>">
-                  <label for="floatingusername">Username</label>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" required id="floatingEmail" name="email" placeholder="name@example.com">
+                    <label for="floatingEmail" aria-describedby="emailHelp">Email address</label>
                 </div>
                 <div class="form-floating">
                   <input type="password" class="form-control mb-3" required id="floatingpassword" name="password" placeholder="Password">
@@ -54,7 +55,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 </div>
                 <div class="text-center">
                     <input type="submit" name="submit" value="Submit" class="text-white btn-grad mb-2">
-                    <a href="signup.php" class=" text-light d-block">Sign Up</a>
+                    <a href="signup.php" class=" text-light d-block mb-2">Sign Up</a>
+                    <a href="forgotpass.php" class=" text-primary text-decoration-underline d-block mb-2">Forgot Password?</a>
                 </div>
             </form>
         </div>

@@ -11,9 +11,9 @@ require_once 'db/conn.php';
 
 if(isset($_POST['submit'])){
     //extract values from $_POST array
-    $username = $_POST['username'];
-    //checking for duplicate usernames
-    $result = $user->getUsersByUserName($username);
+    $email = $_POST['email'];
+    //checking for duplicate email
+    $result = $user->getUsersByEmail($email);
     
     if($result['num'] > 0){
         header('Location: signup.php?duplicate=1');
@@ -25,11 +25,11 @@ if(isset($_POST['submit'])){
         $ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
         $target_dir = 'uploads/';
         // $destination = $target_dir . basename($_FILES['avatar']['name']);
-        $destination = "$target_dir$username.$ext";
+        $destination = "$target_dir$email.$ext";
         move_uploaded_file($orig_file, $destination);
 
         //call function to insert and check if success or not
-        $isSuccess = $user->insertUser($username, $password, $destination);
+        $isSuccess = $user->insertUser($email, $password, $destination);
         if($isSuccess){ ?>
             <div class="msgboard col-11 py-5 rounded-3 border border-light mx-auto mt-5 text-center bg-dark">
                 <h1 class='text-grad'>Successfully Signed Up.</h1>

@@ -21,14 +21,12 @@ require_once 'db/conn.php';
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
             <form action="success.php" method="POST" class="text-dark" enctype="multipart/form-data">
-                <div class="form-floating">
-                  <input type="text" class="form-control" required id="floatingusername" name="username" placeholder="Username">
-                  <label for="floatingusername">Username</label>
-
-                <?php if(isset($_GET['duplicate'])) {?>
-                   <h6 class=" text-danger ps-3">*Username already exists</h6>
-                <?php } ?>
-
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" required id="floatingEmail" name="email" placeholder="name@example.com">
+                    <label for="floatingEmail" aria-describedby="emailHelp">Email address</label>
+                    <?php if(isset($_GET['duplicate'])) {?>
+                       <h6 class=" text-danger ps-3">*Invalid Email</h6>
+                    <?php } ?>
                 </div>
                 <div class="form-floating mt-3">
                   <input type="password" class="form-control mb-3" required id="floatingpassword" name="password" placeholder="Password">

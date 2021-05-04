@@ -49,7 +49,7 @@
                 <button class="btn nav-link avatar border border-2 border-light rounded-3"   data-bs-toggle="modal" data-bs-target="#user"><img class="mw-100 h-100" src="<?php echo empty($_SESSION['avatar']) ?  'images/avatar_placeholder.png' : $_SESSION['avatar'] ?>" alt="avatar"></button>
               </li>
               <li class="nav-item">
-                <button class="btn nav-link text-light"  data-bs-toggle="modal" data-bs-target="#user"><?php echo $_SESSION['username']; ?></button>
+                <button class="btn nav-link text-light"  data-bs-toggle="modal" data-bs-target="#user"><?php echo $_SESSION['email']; ?></button>
               </li>
               </li>
               <li class="nav-item">
