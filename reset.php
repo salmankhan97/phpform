@@ -11,7 +11,6 @@ require_once 'db/conn.php';
 <?php
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $email = $_POST['email'];
-        echo $email;
         $result = $user->getUsersByEmail($email);
 
         if(!$result['num'] > 0){
@@ -24,6 +23,7 @@ require_once 'db/conn.php';
             <a href="https://webdevsk-test-phpform.herokuapp.com/updatepassword.php?ticket='.echo $ticket.'">Click here</a>
             </html>';
             mail("webdevz.sk@gmail.com","Reset Password",$msg);
+            echo $msg;
         }
 
 
