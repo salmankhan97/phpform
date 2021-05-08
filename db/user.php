@@ -95,5 +95,32 @@
                 return false;
             }
         }
+
+        public function checkTicket($ticket){
+            try{
+                $sql = 'SELECT COUNT(*) AS num FROM userinfo WHERE reset_ticket = :ticket';
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindparam(':ticket',$ticket);
+                $stmt->execute();
+                $result = $stmt->fetch();
+                return $result;
+            } catch(PDOException $e){
+                echo $e->getMessage();
+                return false;
+            }
+        }
+
+        public function updatePassword($ticket,$password){
+            try{
+                //getting email from ticket
+                $sql = 'SELECT COUNT(*) AS num FROM userinfo WHERE reset_ticket = :ticket';
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindparam(':ticket',$ticket);
+                $stmt->execute();
+                $result = $stmt->fetch_assoc();
+                
+
+            }
+        }
     } //ends class user
 

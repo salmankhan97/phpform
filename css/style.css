@@ -17,13 +17,20 @@ body {
   border-radius: 6px;
   display: inline-block;
   border: 0px;
-  font-weight: 600; }
+  font-weight: 600; 
+}
 
 .btn-grad:hover {
   background-position: right center;
   /* change the direction of the change here */
   color: #fff;
-  text-decoration: none; }
+  text-decoration: none; 
+}
+
+.btn-grad.disabled, .btn-grad:disabled, fieldset:disabled .btn-grad {
+    pointer-events: none;
+    opacity: .65;
+}
 
 .form-control, .form-select {
   background-color: #212529 !important;
