@@ -20,7 +20,7 @@ require_once 'db/conn.php';
             $msg = '
             <html>
             <h4 style="text-align:center">Hello There!</h4>
-            <a href="https://webdevsk-test-phpform.herokuapp.com/updatepassword.php?ticket='.echo $ticket.'">Click here</a>
+            <a href="https://webdevsk-test-phpform.herokuapp.com/updatepassword.php?ticket='.$ticket.'">Click here</a>
             </html>';
             mail("webdevz.sk@gmail.com","Reset Password",$msg);
             echo $msg;
