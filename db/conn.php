@@ -1,9 +1,9 @@
 <?php
     //Connection to the database
 
-    $host = 'remotemysql.com';
-    $db = '1Vlo3X8QkC';
-    $user = '1Vlo3X8QkC';
+    $host = 'websalman.com';
+    $db = 'webswovk_heroku_phpform';
+    $user = 'webswovk_1Vlo3X8QkC';
     $pass = 'HiUkQaHIZd';
     $charset = 'utf8mb4';
     // $host = 'localhost';
