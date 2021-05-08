@@ -2,7 +2,7 @@
 <?php
 //Enter page title here
 $page_title = 'Sign Up';
-
+//sa
 //importing header
 require_once 'snippets/header.php';
 //importing database connection
