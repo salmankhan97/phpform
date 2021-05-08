@@ -117,9 +117,12 @@
                 $stmt = $this->db->prepare($sql);
                 $stmt->bindparam(':ticket',$ticket);
                 $stmt->execute();
-                $result = $stmt->fetch_assoc();
+                $result = $stmt->fetch();
                 
 
+            }catch(PDOException $e){
+                echo $e->getMessage();
+                return false;
             }
         }
     } //ends class user
