@@ -17,8 +17,10 @@ require_once 'db/conn.php';
         if(!$result['num'] > 0){
             header('Location: forgotpass.php?email='.$email);
         }else{
-            $result = $user->generateTicket($email);
-            echo $result;
+            $ticket = $user->generateTicket($email);
+            $msg = '<h4 style="text-align:center">Hello There!</h4>
+                    <a href="https://webdevsk-test-phpform.herokuapp.com/updatepassword.php?ticket=$ticket">Click here</a>';
+            mail("webdevz.sk@gmail.com","Reset Password",$msg);
         }
 
 
