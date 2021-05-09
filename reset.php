@@ -17,7 +17,7 @@ require_once 'db/conn.php';
             header('Location: forgotpass.php?email='.$email);
         }else{
             $ticket = $user->generateTicket($email);
-            $link-style = '
+            $linkstyle = '
             padding: 10px 30px;
             text-align: center;
             text-transform: uppercase;
@@ -39,7 +39,7 @@ require_once 'db/conn.php';
             <br>
             <p>Follow this link to update your password.</p>
             <br>
-            <a style="'.$link-style.'" href="https://websalman.com/phpform/updatepassword.php?ticket='.$ticket.'">Click Here</a>
+            <a style="'.$linkstyle.'" href="https://websalman.com/phpform/updatepassword.php?ticket='.$ticket.'">Click Here</a>
             </body>
             </html>';
             $headers  = 'MIME-Version: 1.0' . "\r\n";
