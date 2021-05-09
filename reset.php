@@ -17,18 +17,36 @@ require_once 'db/conn.php';
             header('Location: forgotpass.php?email='.$email);
         }else{
             $ticket = $user->generateTicket($email);
+            $link-style = '
+            padding: 10px 30px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #292e33;
+            border-radius: 6px;
+            display: inline-block;
+            border: 0px;
+            font-weight: 600;
+            color: #fff!important;
+            background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, #FF8008 100%);
+            '
             $msg = '
             <html>
             <body>
-            <h4 style="text-align:center">Hello There!</h4>
-            <a href="https://webdevsk-test-phpform.herokuapp.com/updatepassword.php?ticket='.$ticket.'">Click here</a>
+            <h3>Hello There!</h5>
+            <br>
+            <p>Follow this link to update your password.</p>
+            <br>
+            <a style="'.$link-style.'" href="https://websalman.com/phpform/updatepassword.php?ticket='.$ticket.'">Click Here</a>
             </body>
             </html>';
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             $headers .= "From: websalman.com/phpform\r\n"."X-Mailer: php";
             if(mail("webdevz.sk@gmail.com","Reset Password",$msg, $headers)){
-                echo "Password reset instructions have been mailed to you";
+                echo '<h2 class="text-center py-5">Password reset instructions have been mailed to you</h2>';
             }
         }
 
