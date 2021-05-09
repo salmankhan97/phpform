@@ -24,8 +24,12 @@ require_once 'db/conn.php';
             <a href="https://webdevsk-test-phpform.herokuapp.com/updatepassword.php?ticket='.$ticket.'">Click here</a>
             </body>
             </html>';
-            mail("webdevz.sk@gmail.com","Reset Password",$msg);
-            echo $msg;
+            $headers  = 'MIME-Version: 1.0' . "\r\n";
+            $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+            $headers .= "From: websalman.com/phpform\r\n"."X-Mailer: php";
+            if(mail("webdevz.sk@gmail.com","Reset Password",$msg, $headers)){
+                echo "Password reset instructions have been mailed to you";
+            }
         }
 
 
