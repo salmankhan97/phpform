@@ -113,26 +113,27 @@
         public function updatePassword($ticket,$password){
             try{
                 //getting email from ticket
-                $sql = 'SELECT COUNT(*) AS num FROM userinfo WHERE reset_ticket = :ticket';
+                $sql = 'SELECT * FROM userinfo WHERE reset_ticket = :ticket';
                 $stmt = $this->db->prepare($sql);
                 $stmt->bindparam(':ticket',$ticket);
                 $stmt->execute();
                 $result = $stmt->fetch();
                 $email = $result['email'];
-
+                echo $email;
                 $new_password = md5($password.$email);
                 //change password and Null ticket
-                $sql2 = 'UPDATE userinfo SET reset_ticket = NULL, password = :password WHERE reset_ticket = :ticket';
+                $sql2 = 'UPDATE userinfo SET reset_ticket = :ticket, password = :password WHERE reset_ticket = :ticket';
                 $stmt2 = $this->db->prepare($sql2);
 
                 $stmt2->bindparam(':password',$new_password);
-                $stmt2->bindparam(':ticket',$ticket);
+                $stmt2->bindparam(':ticket','');
                 $stmt2->execute();
                 return true;
                 
 
             }catch(PDOException $e){
                 echo $e->getMessage();
+                echo $email;
                 return false;
             }
         }

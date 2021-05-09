@@ -42,13 +42,13 @@ else{
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
             <form action="operations/resetsuccess.php" method="POST" class="text-dark">
-                <input type="hidden" name="ticket" id="ticket" value="<?php echo $ticket ?>">
+                <input type="hidden" name="ticket" value="<?php echo $_GET['ticket'] ?>">
                 <div class="form-floating">
                   <input type="password" class="form-control mb-3" required id="floatingpassword" name="password" placeholder="Password">
                   <label for="floatingpassword">Password</label>
                 </div>
                 <div class="form-floating">
-                  <input type="password" class="form-control mb-3" onkeyup="checkPass(this)" required id="retypepassword" name="password" placeholder="Password">
+                  <input type="password" class="form-control mb-3" onkeyup="checkPass(this)" required id="retypepassword" name="repassword" placeholder="Password">
                   <label for="retypepassword">Re-type Password</label>
                 </div>
                 <p class="mb-3 text-center fw-bolder" id="message"></p>
