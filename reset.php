@@ -24,6 +24,7 @@ require_once 'db/conn.php';
             transition: 0.5s;
             background-size: 200% auto;
             color: white;
+            text-decoration: none;
             box-shadow: 0 0 20px #292e33;
             border-radius: 6px;
             display: inline-block;
@@ -36,17 +37,15 @@ require_once 'db/conn.php';
             <html>
             <body>
             <h3>Hello There!</h5>
-            <br>
-            <p>Follow this link to update your password.</p>
-            <br>
-            <a style="'.$linkstyle.'" href="https://websalman.com/phpform/updatepassword.php?ticket='.$ticket.'">Click Here</a>
+            <a style="'.$linkstyle.'" href="https://websalman.com/phpform/updatepassword.php?ticket='.$ticket.'">Click Here to update your password</a>
             </body>
             </html>';
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             $headers .= "From: websalman.com/phpform\r\n"."X-Mailer: php";
-            mail("webdevz.sk@gmail.com","Reset Password",$msg, $headers);
-            echo 'Mail has been sent';
+            if(mail("webdevz.sk@gmail.com","Reset Password",$msg, $headers)){
+                echo '<h3 class="text-center py-5 text-success">Mail has been sent</h3>';
+            }
         }
 
 
