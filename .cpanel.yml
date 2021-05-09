@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/webswovk/public_html/phpform
+    - /bin/cp -R * $DEPLOYPATH
