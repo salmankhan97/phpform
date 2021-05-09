@@ -67,11 +67,11 @@ $results = $crud->getdata();
                 <td><?php echo $x['subject_name']?></td>
                 <td class="">
                     <button class="btn btn-sm col-12 col-lg-auto btn-primary mb-1 mb-lg-0" data-bs-toggle="modal" data-bs-target="#viewid<?php echo $x['student_id'] ?>">View</button>
-                    <?php include 'viewmodal.php' ?>
+                    <?php include 'snippets/viewmodal.php' ?>
                     <button class="btn btn-sm col-12 col-lg-auto btn-danger mb-1 mb-lg-0" data-bs-toggle="modal" data-bs-target="#deleteid<?php echo $x['student_id'] ?>">Delete</button>
-                    <?php include 'deletemodal.php' ?>
+                    <?php include 'snippets/deletemodal.php' ?>
                     <button class="btn btn-sm col-12 col-lg-auto btn-warning" data-bs-toggle="modal" data-bs-target="#editid<?php echo $x['student_id'] ?>">Edit</button>
-                    <?php include 'editmodal.php' ?>
+                    <?php include 'snippets/editmodal.php' ?>
                 </td>
             </tr>
         <?php } //while loop ends here?>

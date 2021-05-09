@@ -11,7 +11,7 @@ require_once 'db/conn.php';
 // $subjects = $crud->getSubject();
 
 //Check ticket
-if(!isset($_GET['ticket']) || is_null($_GET['ticket'])){
+if(!isset($_GET['ticket']) || empty($_GET['ticket'])){
     header('location: login.php');
 }
 else{
@@ -41,7 +41,8 @@ else{
     </div>
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6">
-            <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST" class="text-dark">
+            <form action="operations/resetsuccess.php" method="POST" class="text-dark">
+                <input type="hidden" name="ticket" id="ticket" value="<?php echo $ticket ?>">
                 <div class="form-floating">
                   <input type="password" class="form-control mb-3" required id="floatingpassword" name="password" placeholder="Password">
                   <label for="floatingpassword">Password</label>
