@@ -118,6 +118,17 @@
                 $stmt->bindparam(':ticket',$ticket);
                 $stmt->execute();
                 $result = $stmt->fetch();
+                $email = $result['email'];
+
+                $new_password = md5($password.$email);
+                //change password and Null ticket
+                $sql2 = 'UPDATE userinfo SET reset_ticket = NULL, password = :password WHERE reset_ticket = :ticket';
+                $stmt2 = $this->db->prepare($sql2);
+
+                $stmt2->bindparam(':password',$new_password);
+                $stmt2->bindparam(':ticket',$ticket);
+                $stmt2->execute();
+                return true;
                 
 
             }catch(PDOException $e){

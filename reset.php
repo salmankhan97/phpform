@@ -43,8 +43,8 @@ require_once 'db/conn.php';
             $headers  = 'MIME-Version: 1.0' . "\r\n";
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             $headers .= "From: websalman.com/phpform\r\n"."X-Mailer: php";
-            if(mail("webdevz.sk@gmail.com","Reset Password",$msg, $headers)){
-                echo '<h3 class="text-center py-5 text-success">Mail has been sent</h3>';
+            if(mail($email,"Reset Password",$msg, $headers)){
+                echo '<h3 class="text-center py-5 text-white">Mail has been sent</h3>';
             }
         }
 
