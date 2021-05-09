@@ -31,7 +31,7 @@ require_once 'db/conn.php';
             font-weight: 600;
             color: #fff!important;
             background-image: linear-gradient(to right, #FF8008 0%, #FFC837 51%, #FF8008 100%);
-            '
+            ';
             $msg = '
             <html>
             <body>
