@@ -11,7 +11,7 @@ require_once 'db/conn.php';
 // $subjects = $crud->getSubject();
 
 //Check ticket
-if(!isset($_GET['ticket'])){
+if(!isset($_GET['ticket']) || is_null($_GET['ticket'])){
     header('location: login.php');
 }
 else{

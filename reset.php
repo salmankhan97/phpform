@@ -37,6 +37,7 @@ require_once 'db/conn.php';
             <html>
             <body>
             <h3>Hello There!</h5>
+            <br>
             <a style="'.$linkstyle.'" href="https://websalman.com/phpform/updatepassword.php?ticket='.$ticket.'">Click Here to update your password</a>
             </body>
             </html>';

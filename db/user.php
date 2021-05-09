@@ -89,8 +89,7 @@
                 $stmt->bindparam(':email',$email);
                 $stmt->bindparam(':reset_ticket',$reset_ticket);
                 $stmt->execute();
-                $result = $stmt->fetch();
-                return $result;
+                return $reset_ticket;
             } catch(PDOException $e){
                 echo $e->getMessage();
                 return false;
