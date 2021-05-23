@@ -6,6 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $result = $user->updatePassword($ticket,$password);
     if($result){
         //header('Location: ../login.php?updatepass=1');
+        echo 'Done';
     }else{
         echo 'error';
     }
