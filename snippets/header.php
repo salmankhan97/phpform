@@ -61,4 +61,5 @@
         </div>
       </div>
     </nav>
+    <noscript class="d-block my-4 text-center text-danger fs-5">Some functions require Javascript to run properly.<br> Kindly Update your browser or enable Javascript</noscript>
     <?php include 'snippets/usermodal.php' ?>

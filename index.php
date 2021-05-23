@@ -98,7 +98,7 @@ $subjects = $crud->getSubject();
 
 
 
-
+<script src="js/clock.js"></script>
 
 <!-- Body ends here -->
 <?php

@@ -32,7 +32,17 @@ else{
         </div>
     </div>
 </div>
-<?php } else if($result){ ?>
+<?php } else if($result){ 
+    if($_GET['mispassword'] == 1){ ?>
+        <div class="container">
+            <div class="row my-3">
+                <div class="offset-lg-3 col12 col-lg-6 align-self-center">
+                    <h1 class="text-center mt-4 text-danger">Passwords Mismatch. Please try again.</h1>
+                </div>
+            </div>
+        </div>
+    <?php }?>
+
 <div class="container">
     <div class="row my-3">
         <div class="offset-lg-3 col12 col-lg-6 align-self-center">
