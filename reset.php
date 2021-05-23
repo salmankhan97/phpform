@@ -45,7 +45,7 @@ require_once 'db/conn.php';
             $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
             $headers .= "From: websalman.com/phpform\r\n"."X-Mailer: php";
             if(mail($email,"Reset Password",$msg, $headers)){
-                echo '<h3 class="text-center py-5 text-white">Mail has been sent</h3>';
+                echo '<h3 class="text-center py-5 text-white">Password reset instructions have been mailed to you</h3>';
             }
         }
 
