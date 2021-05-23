@@ -63,7 +63,7 @@ else{
                 </div>
                 <p class="mb-3 text-center fw-bolder" id="message"></p>
                 <div class="text-center">
-                    <input type="submit" name="submit" disabled id="submit" value="Submit" class="text-white btn-grad mb-2" disabled>
+                    <input type="submit" name="submit" id="submit" value="Submit" class="text-white btn-grad mb-2" disabled>
                 </div>
             </form>
         </div>

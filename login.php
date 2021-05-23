@@ -30,12 +30,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(!$result){
         echo '<p class="text-danger text-center">Username or Password is incorrect</p>';
     }else{
-
+        header("Location: datalist.php");
         $_SESSION['email'] = $email;
         $_SESSION['id'] = $result['id'];
         $_SESSION['avatar'] = $result['avatar'];
-        
-        header("Location: datalist.php");
     }
 
 
@@ -62,10 +60,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 </div>
                 <div class="text-center">
                     <input type="submit" name="submit" value="Submit" class="text-white btn-grad mb-2">
-                    <a href="signup.php" class=" text-light d-block mb-2">Sign Up</a>
-                    <button onclick="showForgotpassword()" class="btn text-primary mx-auto text-decoration-underline d-block mb-2">Forgot Password?</button>
                 </div>
             </form>
+            <div class="text-center">
+                <a href="signup.php" class=" text-light d-block mb-2">Sign Up</a>
+                <button onclick="showForgotpassword()" class="btn text-primary mx-auto text-decoration-underline d-block mb-2">Forgot Password?</button>
+            </div>
         </div>
     </div>
 </div>
