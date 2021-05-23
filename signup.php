@@ -8,6 +8,18 @@ require_once 'snippets/header.php';
 //importing database connection
 require_once 'db/conn.php';
 
+//getting email and error from success page(server side validation)
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    if(isset($_GET['email'])){
+        $email = $_GET['email'];
+    }
+    if(isset($_GET['error'])){
+        $error = $_GET['error'];
+    }
+    if(isset($_GET['duplicate'])){
+        $isDuplicate = $_GET['duplicate'];
+    }
+}
 ?>
 <!-- Body starts here -->
 
@@ -22,9 +34,9 @@ require_once 'db/conn.php';
         <div class="col-12 col-md-8 col-lg-6">
             <form action="success.php" method="POST" class="text-dark" enctype="multipart/form-data">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" required id="floatingEmail" name="email" placeholder="name@example.com">
+                    <input type="email" class="form-control" required value="<?php if(isset($email))echo $email; ?>" id="floatingEmail" name="email" placeholder="name@example.com">
                     <label for="floatingEmail" aria-describedby="emailHelp">Email address</label>
-                    <?php if(isset($_GET['duplicate'])) {?>
+                    <?php if(isset($isDuplicate) && $isDuplicate == 1) {?>
                        <h6 class=" text-danger ps-3">*Invalid Email</h6>
                     <?php } ?>
                 </div>
@@ -36,6 +48,15 @@ require_once 'db/conn.php';
                   <label class="text-white  mb-1" for="avatar">Choose Avatar</label>
                   <input type="file" accept="image/*" onchange="fileSizeValid()" class="form-control form-control mb-1" id="avatar" name="avatar">
                   <h6 id="avatarerror" class="text-white mb-3">File size (<span id="showfsize">0</span>KB/2048KB)</h6>
+                  
+                  <?php
+                    //error print
+                    if(isset($error) && $error == 'exterror'){ ?>
+                        <h6 class="text-danger mb-3">Allowed File extensions: png jpg jpeg webp gif</h6>
+                    <?php }
+                    else if(isset($error) && $error == 'sizeerror'){ ?>
+                        <h6 class="text-danger mb-3">File size is too big. Please select a photo less than 2 MegaBytes</h6>
+                    <?php } ?>
                 </div>
                 <div class="text-center">
                     <input type="submit" name="submit" id="signupbtn" value="Sign Up" class="text-white btn-grad mb-3">
