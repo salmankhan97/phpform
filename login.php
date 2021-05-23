@@ -30,7 +30,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if(!$result){
         echo '<p class="text-danger text-center">Username or Password is incorrect</p>';
     }else{
-        header("Location: datalist.php");
+
+
+        
+        header('Location: datalist.php');
         $_SESSION['email'] = $email;
         $_SESSION['id'] = $result['id'];
         $_SESSION['avatar'] = $result['avatar'];

@@ -34,10 +34,11 @@ require_once 'db/conn.php';
                 </div>
                 <div class="form-group text-center">
                   <label class="text-white  mb-1" for="avatar">Choose Avatar</label>
-                  <input type="file" accept="image/*"  class="form-control form-control mb-3" id="avatar" name="avatar">
+                  <input type="file" accept="image/*" onchange="fileSizeValid()" class="form-control form-control mb-1" id="avatar" name="avatar">
+                  <h6 id="avatarerror" class="text-white mb-3">File size (<span id="showfsize">0</span>KB/2048KB)</h6>
                 </div>
                 <div class="text-center">
-                    <input type="submit" name="submit" value="Sign Up" class="text-white btn-grad mb-3">
+                    <input type="submit" name="submit" id="signupbtn" value="Sign Up" class="text-white btn-grad mb-3">
                 </div>
             </form>
         </div>
@@ -45,7 +46,32 @@ require_once 'db/conn.php';
 </div>
 
 
-
+<script>
+    function fileSizeValid(){
+        const fi = document.getElementById('avatar');
+        const errmsg = document.getElementById('avatarerror');
+        const sbtn = document.getElementById('signupbtn');
+        const showsize = document.getElementById('showfsize');
+        if(fi.files.length>0){
+            const fsize = fi.files[0].size;
+            const file = Math.round((fsize/1024));
+            showsize.innerHTML = file;
+            if(file>2048){
+                errmsg.classList.remove('text-white');
+                errmsg.classList.remove('text-success');
+                errmsg.classList.add('text-danger');
+                //errmsg.innerHTML = 'File size is too big. Please select a photo less than 2 MegaBytes';
+                sbtn.disabled = true;
+            }else{
+                errmsg.classList.remove('text-white');
+                errmsg.classList.remove('text-danger');
+                errmsg.classList.add('text-success');
+                //errmsg.innerHTML = '';
+                sbtn.disabled = false;
+            }
+        }
+    }
+</script>
 
 
 
