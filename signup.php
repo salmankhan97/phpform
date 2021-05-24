@@ -8,21 +8,18 @@ require_once 'snippets/header.php';
 //importing database connection
 require_once 'db/conn.php';
 
-//getting email and error from success page(server side validation)
-if($_SERVER['REQUEST_METHOD'] == 'GET'){
-    if(isset($_GET['email'])){
-        $email = $_GET['email'];
-    }
-    if(isset($_GET['error'])){
-        $error = $_GET['error'];
-    }
-    if(isset($_GET['duplicate'])){
-        $isDuplicate = $_GET['duplicate'];
-    }
-}
 ?>
 <!-- Body starts here -->
 
+<?php if(isset($_GET['error']) && $_GET['error'] == 'mispassword'){ ?>
+        <div class="container">
+            <div class="row my-3">
+                <div class="offset-lg-3 col12 col-lg-6 align-self-center">
+                    <h6 class="text-center mt-4 text-danger">Passwords Mismatch. Please try again.</h6>
+                </div>
+            </div>
+        </div>
+<?php } ?>
 <div class="container">
     <div class="row my-3">
         <div class="offset-lg-3 col12 col-lg-6 align-self-center">
@@ -34,9 +31,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         <div class="col-12 col-md-8 col-lg-6">
             <form action="success.php" method="POST" class="text-dark" enctype="multipart/form-data">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" required value="<?php if(isset($email))echo $email; ?>" id="floatingEmail" name="email" placeholder="name@example.com">
+                    <input type="email" class="form-control" required value="<?php if(isset($_GET['email']))echo $_GET['email']; ?>" id="floatingEmail" name="email" placeholder="name@example.com">
                     <label for="floatingEmail" aria-describedby="emailHelp">Email address</label>
-                    <?php if(isset($isDuplicate) && $isDuplicate == 1) {?>
+                    <?php if(isset($_GET['error']) && $_GET['error'] == 'duplicate') {?>
                        <h6 class=" text-danger ps-3">*Invalid Email</h6>
                     <?php } ?>
                 </div>
@@ -44,6 +41,11 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
                   <input type="password" class="form-control mb-3" required id="floatingpassword" name="password" placeholder="Password">
                   <label for="floatingpassword">Password</label>
                 </div>
+                <div class="form-floating">
+                  <input type="password" class="form-control mb-3" onkeyup="checkPass(this)" required id="retypepassword" name="repassword" placeholder="Password">
+                  <label for="retypepassword">Re-type Password</label>
+                </div>
+                <p class="mb-3 text-center fw-bolder" id="message"></p>
                 <div class="form-group text-center">
                   <label class="text-white  mb-1" for="avatar">Choose Avatar</label>
                   <input type="file" accept="image/*" onchange="fileSizeValid()" class="form-control form-control mb-1" id="avatar" name="avatar">
@@ -51,10 +53,10 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
                   
                   <?php
                     //error print
-                    if(isset($error) && $error == 'exterror'){ ?>
+                    if(isset($_GET['error']) && $_GET['error'] == 'exterror'){ ?>
                         <h6 class="text-danger mb-3">Allowed File extensions: png jpg jpeg webp gif</h6>
                     <?php }
-                    else if(isset($error) && $error == 'sizeerror'){ ?>
+                    else if(isset($_GET['error']) && $_GET['error'] == 'sizeerror'){ ?>
                         <h6 class="text-danger mb-3">File size is too big. Please select a photo less than 2 MegaBytes</h6>
                     <?php } ?>
                 </div>
@@ -93,7 +95,32 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         }
     }
 </script>
+<script>
+function checkPass(a){
+    let passwordField = document.getElementById('floatingpassword');
+    let repasswordField = document.getElementById('retypepassword');
+    let password = document.getElementById('floatingpassword').value;
+    let repassword = document.getElementById('retypepassword').value;
+    let bt = document.getElementById('signupbtn');
+    let msg = document.getElementById('message');
+    if(password == repassword){
+        bt.disabled = false;
+        msg.innerHTML = 'Passwords Matched';
+        msg.classList.remove('text-danger');
+        msg.classList.add('text-success');
+        passwordField.classList.remove('border-danger');
+        repasswordField.classList.remove('border-danger');
+    } else{
+        bt.disabled = true;
+        msg.innerHTML = 'Passwords Mismatched';
+        msg.classList.remove('text-success');
+        msg.classList.add('text-danger');
+        passwordField.classList.add('border-danger');
+        repasswordField.classList.add('border-danger');
+    }
+}
 
+</script>
 
 
 

@@ -15,10 +15,15 @@ if(isset($_POST['submit'])){
     //checking for duplicate email
     $result = $user->getUsersByEmail($email);
     $password = $_POST['password'];
+    $repassword = $_POST['repassword'];
     
     if($result['num'] > 0){
-        header('Location: signup.php?duplicate=1');
+        header('Location: signup.php?email='.$email.'&error=duplicate');
+        exit();
 
+    }else if($password !== $repassword){
+        header('Location: signup.php?email='.$email.'&error=mispassword');
+        exit();
     }else if(file_exists($_FILES['avatar']['tmp_name'])){
         $orig_file = $_FILES['avatar']['tmp_name'];
         $ext = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
@@ -32,8 +37,10 @@ if(isset($_POST['submit'])){
         //checking if file extensions match
         if(!in_array($ext, $allowed_ext)){
             header('Location: signup.php?email='.$email.'&error=exterror');
+            exit();
         }else if($_FILES['avatar']['size'] > 2000000){
             header('Location: signup.php?email='.$email.'&error=sizeerror');
+            exit();
         }
     }
     $target_dir = 'uploads/';

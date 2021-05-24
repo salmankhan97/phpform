@@ -27,6 +27,7 @@ if(isset($_POST['submit'])){
 
     if($result){
         header("Location: datalist.php?updated=1");
+        exit();
     }else{ ?>
         <div class="msgboard col-11 py-5 rounded-3 border border-light mx-auto mt-5 text-center bg-dark">
             <h1 class='text-grad'><?php echo "error"; ?></h1>

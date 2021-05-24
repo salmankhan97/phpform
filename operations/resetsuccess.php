@@ -6,10 +6,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $repassword = $_POST['repassword'];
     if($password !== $repassword){
         header('Location: ../updatepassword.php?ticket='.$ticket.'&mispassword=1');
+        exit();
     }else{
         $result = $user->updatePassword($ticket,$password);
         if($result){
             header('Location: ../login.php?updatepass=1');
+            exit();
         }else{
             echo 'error';
         }

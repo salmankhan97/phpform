@@ -11,6 +11,7 @@
 
         if($result){
             header('Location: datalist.php?deleted=1');
+            exit();
         }else{
             echo "error";
         }

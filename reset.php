@@ -15,6 +15,7 @@ require_once 'db/conn.php';
 
         if(!$result['num'] > 0){
             header('Location: forgotpass.php?email='.$email);
+            exit();
         }else{
             $ticket = $user->generateTicket($email);
             $linkstyle = '

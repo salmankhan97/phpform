@@ -13,6 +13,7 @@ require_once 'db/conn.php';
 //Check ticket
 if(!isset($_GET['ticket']) || empty($_GET['ticket'])){
     header('location: login.php');
+    exit();
 }
 else{
     $ticket = $_GET['ticket'];
@@ -73,9 +74,11 @@ else{
 
 <script>
 function checkPass(a){
+    let passwordField = document.getElementById('floatingpassword');
+    let repasswordField = document.getElementById('retypepassword');
     let password = document.getElementById('floatingpassword').value;
     let repassword = document.getElementById('retypepassword').value;
-    let bt = document.getElementById('submit');
+    let bt = document.getElementById('signupbtn');
     let msg = document.getElementById('message');
 
     if(password == repassword){
@@ -83,11 +86,15 @@ function checkPass(a){
         msg.innerHTML = 'Passwords Matched';
         msg.classList.remove('text-danger');
         msg.classList.add('text-success');
+        passwordField.classList.remove('border-danger');
+        repasswordField.classList.remove('border-danger');
     } else{
         bt.disabled = true;
         msg.innerHTML = 'Passwords Mismatched';
         msg.classList.remove('text-success');
         msg.classList.add('text-danger');
+        passwordField.classList.add('border-danger');
+        repasswordField.classList.add('border-danger');
     }
 }
 
