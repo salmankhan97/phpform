@@ -17,20 +17,13 @@ body {
   border-radius: 6px;
   display: inline-block;
   border: 0px;
-  font-weight: 600; 
-}
+  font-weight: 600; }
 
 .btn-grad:hover {
   background-position: right center;
   /* change the direction of the change here */
   color: #fff;
-  text-decoration: none; 
-}
-
-.btn-grad.disabled, .btn-grad:disabled, fieldset:disabled .btn-grad {
-    pointer-events: none;
-    opacity: .65;
-}
+  text-decoration: none; }
 
 .form-control, .form-select {
   background-color: #212529 !important;
@@ -61,18 +54,43 @@ body {
   -webkit-text-fill-color: #4a141400;
   -webkit-background-clip: text; }
 
-.clock {
-  position: absolute;
-  top: 100px;
-  right: 100px; }
-
-.avatar{
+.avatar {
   height: 40px;
   width: 40px;
-  padding: 0px !important;
-}
-.avatar img{
-  object-fit: cover;
-}
+  padding: 0px !important; }
+
+.avatar img {
+  object-fit: cover; }
+
+.clock {
+  position: absolute;
+  top: 50px;
+  right: 50px; }
+
+.spinner:not([hidden]) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.spinner::after {
+  content: "";
+  width: 40px;
+  height: 40px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--bs-primary);
+  border-radius: 100%;
+  will-change: transform;
+  animation: spin 1s infinite linear; }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
 
 /*# sourceMappingURL=style.css.map */

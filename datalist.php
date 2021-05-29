@@ -66,19 +66,19 @@ $results = $crud->getdata();
                 <td><?php echo $x['phone_number']?></td>
                 <td><?php echo $x['subject_name']?></td>
                 <td class="">
-                    <button class="btn btn-sm col-12 col-lg-auto btn-primary mb-1 mb-lg-0" data-bs-toggle="modal" data-bs-target="#viewid<?php echo $x['student_id'] ?>">View</button>
-                    <?php include 'snippets/viewmodal.php' ?>
-                    <button class="btn btn-sm col-12 col-lg-auto btn-danger mb-1 mb-lg-0" data-bs-toggle="modal" data-bs-target="#deleteid<?php echo $x['student_id'] ?>">Delete</button>
-                    <?php include 'snippets/deletemodal.php' ?>
-                    <button class="btn btn-sm col-12 col-lg-auto btn-warning" data-bs-toggle="modal" data-bs-target="#editid<?php echo $x['student_id'] ?>">Edit</button>
-                    <?php include 'snippets/editmodal.php' ?>
+                    <button class="btn btn-sm col-12 col-lg-auto btn-primary mb-1 mb-lg-0" onclick="viewID(<?php echo $x['student_id'] ?>)" data-bs-toggle="modal" data-bs-target="#viewModal">View</button>
+                    <button class="btn btn-sm col-12 col-lg-auto btn-danger mb-1 mb-lg-0" onclick="deleteID(<?php echo $x['student_id'] ?>)" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                    <button class="btn btn-sm col-12 col-lg-auto btn-warning" onclick="editID(<?php echo $x['student_id'] ?>)" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
                 </td>
             </tr>
         <?php } //while loop ends here?>
         </table>
     </div>
 </div>
-        
+
+<?php include 'snippets/viewmodal.php' ?>
+<?php include 'snippets/deletemodal.php' ?>
+<?php include 'snippets/editmodal.php' ?>
     
 
 
@@ -86,7 +86,78 @@ $results = $crud->getdata();
 
 
 
+<script>
+    function viewID(x){
+        const spinner = document.getElementsByClassName('spinner');
+        const modalData = document.getElementById('modalData');
+        for(i=0; i < spinner.length ; i++){
+            spinner[i].hidden=false;
+        }
+        modalData.style.opacity = 0;
+        // x.preventDefault();
+        fetch('api/view.php?id='+x)
+        .then((res) => res.json())
+        .then((data) => {
+            document.getElementById('viewFname').innerHTML = data.first_name;
+            document.getElementById('viewLname').innerHTML = data.last_name;
+            document.getElementById('viewEmail').innerHTML = data.email_address;
+            document.getElementById('viewPhone').innerHTML = data.phone_number;
+            document.getElementById('viewDob').innerHTML = data.date_of_birth;
+            document.getElementById('viewSubject').innerHTML = data.subject_name;
+            document.getElementById('viewJoinDate').innerHTML = data.joining_date;
+            document.getElementById('viewFeedback').innerHTML = data.feedback;
+            for(i=0; i < spinner.length ; i++){
+                spinner[i].hidden=true;
+            }
+            modalData.style.opacity = 1;
+        });
+        return false;
+    }
 
+    function deleteID(x){
+        document.getElementById('deleteConfirm').href=`delete.php?id=${x}`;
+    }
+
+    function editID(x){
+        const spinner = document.getElementsByClassName('spinner');
+        const modalData = document.getElementById('modalData2');
+        for(i=0; i < spinner.length ; i++){
+            spinner[i].hidden=false;
+        }
+        modalData.style.opacity = 0;
+        // x.preventDefault();
+        fetch('api/view.php?id='+x)
+        .then((res) => res.json())
+        .then((data) => {
+            document.getElementById('editId').value = data.student_id;
+            document.getElementById('editFname').value = data.first_name;
+            document.getElementById('editLname').value = data.last_name;
+            document.getElementById('editEmail').value = data.email_address;
+            document.getElementById('editPhone').value = data.phone_number;
+            document.getElementById('editDob').value = data.date_of_birth;
+            //document.getElementById('editSubject').value = data.subject_name;
+            document.getElementById('editFeedback').value = data.feedback;
+            //selecting subject
+            let chosen = data.subject_name;
+            //console.log(chosen);
+            let option = document.getElementsByClassName('subjectSelect');
+            for(i=0; i < option.length ; i++){
+                // console.log(option[i].text);
+                // console.log(option[i].value);
+                if(option[i].text == chosen){
+                    option[i].selected = true;
+                }
+                
+            }
+            // console.log(option);
+            for(i=0; i < spinner.length ; i++){
+                spinner[i].hidden=true;
+            }
+            modalData.style.opacity = 1;
+        });
+        return false;
+    }
+</script>
 <!-- Body ends here -->
 <?php
 //importing footer

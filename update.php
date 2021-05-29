@@ -30,15 +30,16 @@ if(isset($_POST['submit'])){
         exit();
     }else{ ?>
         <div class="msgboard col-11 py-5 rounded-3 border border-light mx-auto mt-5 text-center bg-dark">
-            <h1 class='text-grad'><?php echo "error"; ?></h1>
+            <h1 class='text-grad'><?php echo "error" ?></h1>
         </div>
     <?php } 
  
     
-}else{
-    echo "error";
-}
+}else{ ?>
+    <div class="msgboard col-11 py-5 rounded-3 border border-light mx-auto mt-5 text-center bg-dark">
+        <h1 class='text-grad'><?php echo "error" ?></h1>
+    </div>
+<?php }
 
 
 require 'snippets/footer.php';
-?>

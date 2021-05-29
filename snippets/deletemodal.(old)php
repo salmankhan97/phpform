@@ -1,6 +1,6 @@
 
 
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteid<?php echo $x['student_id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <?php
 //Checking if logged in or not
 if(!isset($_SESSION['id'])){ ?>
@@ -28,7 +28,7 @@ if(!isset($_SESSION['id'])){ ?>
             <h2>Are you sure?</h2>
       </div>
       <div class="modal-footer border-0 justify-content-center">
-        <a href="" id="deleteConfirm" type="button" class="btn btn-danger" >Delete</a>
+        <a href="delete.php?id=<?php echo $x['student_id'] ?>" type="button" class="btn btn-danger" >Delete</a>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
