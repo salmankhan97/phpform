@@ -64,7 +64,7 @@ $subjects = $crud->getSubject();
                     <label for="floatingNumber">Phone Number</label>
                 </div>
                 <div class="form-floating">
-                    <input type="text"  class="form-control mb-3" name="dob" id="floatingDob">
+                    <input type="text"  class="form-control mb-3 custom-date" placeholder="Date of Birth" name="dob" id="floatingDob">
                     <label for="floatingDob">Date of Birth</label>
                 </div>
                 

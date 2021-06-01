@@ -135,7 +135,6 @@ $results = $crud->getdata();
             document.getElementById('editEmail').value = data.email_address;
             document.getElementById('editPhone').value = data.phone_number;
             document.getElementById('editDob').value = data.date_of_birth;
-            //document.getElementById('editSubject').value = data.subject_name;
             document.getElementById('editFeedback').value = data.feedback;
             //selecting subject
             let chosen = data.subject_name;

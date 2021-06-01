@@ -52,7 +52,7 @@ if(!isset($_SESSION['id'])){ ?>
                 <label for="editNumber">Phone Number</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="date"  class="form-control mb-3" id="editDob" name="dob">
+                <input type="text"  class="form-control mb-3 custom-date" id="editDob" name="dob">
                 <label for="editDob">Date of Birth</label>
             </div>
             <select class="form-select form-select-md py-3" aria-label=".form-select-lg example" name="subject_id">
