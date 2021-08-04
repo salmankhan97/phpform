@@ -7,9 +7,9 @@
     // $pass = 'HiUkQaHIZd';
     // $charset = 'utf8mb4';
     $host = 'localhost';
-    $db = 'ssb_db';
-    $user = 'root';
-    $pass = '';
+    $db = 'webswovk_phpform';
+    $user = 'webswovk_phpform';
+    $pass = 'phpform';
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
